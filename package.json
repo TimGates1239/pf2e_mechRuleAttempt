@@ -20,6 +20,7 @@
         "lint": "eslint && npm run prettier:scss-svelte",
         "prettier:scss-svelte": "prettier --check src/styles src/**/*.svelte",
         "lint:fix": "eslint --fix && prettier --write src/styles src/**/*.svelte",
+        "build-zip": "pnpm run build --system=sf2e && pnpm run zip",
         "zip": "tar.exe -caf ./system.zip ./dist/sf2e/*",
         "zip-assets": "copy -Path ./static/lang/ -Destination ./json-assets/ -Recurse -Force; tar.exe -caf ./json-assets.zip ./json-assets/*"
     },
