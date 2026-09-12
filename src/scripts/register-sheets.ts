@@ -38,6 +38,7 @@ import { SceneConfigPF2e } from "@scene/sheet.ts";
 import { TokenDocumentPF2e } from "@scene/token-document/document.ts";
 import { TokenConfigPF2e } from "@scene/token-document/index.ts";
 import appv1 = foundry.appv1;
+import { MechSheetPF2e } from "@actor/mech/sheet.ts";
 
 export function registerSheets(): void {
     const sheetLabel = "PF2E.SheetLabel";
@@ -88,6 +89,14 @@ export function registerSheets(): void {
     fd.collections.Actors.registerSheet("pf2e", FamiliarSheetPF2e, {
         types: ["familiar"],
         label: _loc(sheetLabel, { type: localizeType("familiar") }),
+        makeDefault: true,
+    });
+
+    // Mech
+    // WIP Do I need to do the localizeType here
+    fd.collections.Actors.registerSheet("pf2e", MechSheetPF2e, {
+        types: ["mech"],
+        label: _loc(sheetLabel, { type: "Mech" }),
         makeDefault: true,
     });
 
