@@ -809,6 +809,7 @@ class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | n
     override prepareBaseData(): void {
         super.prepareBaseData();
 
+        // Bug: this.system.attruibutes is not defiend
         this.system.autoChanges = {};
         this.system.attributes.flanking = { canFlank: false, canGangUp: [], flankable: false, offGuardable: false };
 

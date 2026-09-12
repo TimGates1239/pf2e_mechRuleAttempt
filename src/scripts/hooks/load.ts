@@ -5,6 +5,7 @@ import { FamiliarSystemData } from "@actor/familiar/data.ts";
 import { HazardSystemData } from "@actor/hazard/data.ts";
 import { resetActors } from "@actor/helpers.ts";
 import { LootSystemData } from "@actor/loot/data.ts";
+import { MechSystemData } from "@actor/mech/data.ts";
 import { PartySystemData } from "@actor/party/data.ts";
 import { ActorSheetPF2e } from "@actor/sheet/base.ts";
 import { VehicleSystemData } from "@actor/vehicle/data.ts";
@@ -97,11 +98,12 @@ export class Load {
         CONFIG.User.documentClass = UserPF2e;
 
         // Actor system data 
-        // WIP need to add mech?
+        // Defined where the this.system data is set for the Mech actor
         CONFIG.Actor.dataModels.army = ArmySystemData;
         CONFIG.Actor.dataModels.familiar = FamiliarSystemData;
         CONFIG.Actor.dataModels.hazard = HazardSystemData;
         CONFIG.Actor.dataModels.loot = LootSystemData;
+        CONFIG.Actor.dataModels.mech = MechSystemData;
         CONFIG.Actor.dataModels.party = PartySystemData;
         CONFIG.Actor.dataModels.vehicle = VehicleSystemData;
 
