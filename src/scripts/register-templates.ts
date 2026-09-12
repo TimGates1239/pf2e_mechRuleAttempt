@@ -123,6 +123,15 @@ export function registerTemplates(): void {
         "actors/loot/inventory.hbs",
         "actors/loot/sidebar.hbs",
 
+        // Mech partials
+        "actors/mech/mech-header.hbs",
+        "actors/mech/sidebar.hbs",
+        "actors/mech/tabs/details.hbs",
+        "actors/mech/tabs/actions.hbs",
+        "actors/mech/tabs/inventory.hbs",
+        "actors/mech/tabs/description.hbs",
+        "actors/mech/tabs/effects.hbs",
+
         // Vehicle partials
         "actors/vehicle/vehicle-header.hbs",
         "actors/vehicle/sidebar.hbs",

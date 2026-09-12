@@ -96,7 +96,7 @@ export function registerSheets(): void {
     // WIP Do I need to do the localizeType here
     fd.collections.Actors.registerSheet("pf2e", MechSheetPF2e, {
         types: ["mech"],
-        label: _loc(sheetLabel, { type: "Mech" }),
+        label: "Mech",
         makeDefault: true,
     });
 
