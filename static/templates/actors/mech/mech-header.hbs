@@ -4,7 +4,7 @@
             <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "PF2E.CharacterNamePlaceholder"}}" />
         </h1>
         <div class="tags">
-            <!--> WIP Rarity unknown if needed, maybe mech teir instead?<-->
+            <!-- WIP Rarity unknown if needed, maybe mech teir instead -->
             <select class="rarity rarity-select {{data.traits.rarity}}" name="system.traits.rarity" data-dtype="String">
                 {{selectOptions actorRarities selected=data.traits.rarity localize=true}}
             </select>
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="char-level">
-        <!--> WIP maybe mech teir instead?<-->
+        <!-- WIP maybe mech teir instead?  -->
         <div class="level">
             <label>{{localize "PF2E.vehicle.VehicleLevelLabel"}}</label>
             <input name="system.details.level.value" type="number" value="{{data.details.level.value}}" placeholder="1" size="2" />
