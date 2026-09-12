@@ -26,6 +26,7 @@ export type {
     FamiliarSource,
     HazardSource,
     LootSource,
+    MechSource,
     NPCSource,
     PartySource,
     RollInitiativeOptionsPF2e,

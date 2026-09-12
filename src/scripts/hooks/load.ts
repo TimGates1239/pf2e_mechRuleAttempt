@@ -96,7 +96,8 @@ export class Load {
 
         CONFIG.User.documentClass = UserPF2e;
 
-        // Actor system data models
+        // Actor system data 
+        // WIP need to add mech?
         CONFIG.Actor.dataModels.army = ArmySystemData;
         CONFIG.Actor.dataModels.familiar = FamiliarSystemData;
         CONFIG.Actor.dataModels.hazard = HazardSystemData;

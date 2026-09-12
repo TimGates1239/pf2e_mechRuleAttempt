@@ -59,6 +59,7 @@
                     "details.description"
                 ]
             },
+            "mech": {},
             "party": {
                 "htmlFields": [
                     "details.description"

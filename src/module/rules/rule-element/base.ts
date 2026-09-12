@@ -44,6 +44,7 @@ abstract class RuleElement<TSchema extends RuleElementSchema = RuleElementSchema
         "character",
         "familiar",
         "hazard",
+        "mech",
         "npc",
         "party",
         "vehicle",
