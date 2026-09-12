@@ -6,7 +6,7 @@ const ATTRIBUTE_ABBREVIATIONS = new Set(["str", "dex", "con", "int", "wis", "cha
 
 const CREATURE_ACTOR_TYPES = ["character", "npc", "familiar"] as const;
 
-const ACTOR_TYPES = ["army", "character", "familiar", "hazard", "loot", "npc", "party", "vehicle"] as const;
+const ACTOR_TYPES = ["army", "character", "familiar", "hazard", "loot", "mech", "npc", "party", "vehicle"] as const;
 
 const SAVE_TYPES = ["fortitude", "reflex", "will"] as const;
 

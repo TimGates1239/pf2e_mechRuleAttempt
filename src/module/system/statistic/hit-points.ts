@@ -1,11 +1,11 @@
-import type { CreaturePF2e, HazardPF2e, VehiclePF2e } from "@actor";
+import type { CreaturePF2e, HazardPF2e, MechPF2e, VehiclePF2e } from "@actor";
 import { StatisticModifier, createAttributeModifier } from "@actor/modifiers.ts";
 import { signedInteger } from "@util";
 import * as R from "remeda";
 import { BaseStatistic } from "./base.ts";
 import { BaseStatisticTraceData } from "./data.ts";
 
-type HPStatActor = CreaturePF2e | HazardPF2e | VehiclePF2e;
+type HPStatActor = CreaturePF2e | HazardPF2e | MechPF2e | VehiclePF2e;
 
 class HitPointsStatistic<TActor extends HPStatActor = HPStatActor> extends BaseStatistic<TActor> {
     /** The actor's current hit points */

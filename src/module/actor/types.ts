@@ -26,6 +26,7 @@ interface ActorInstances<TParent extends TokenDocumentPF2e | null> {
     familiar: ActorInstance.FamiliarPF2e<TParent>;
     hazard: ActorInstance.HazardPF2e<TParent>;
     loot: ActorInstance.LootPF2e<TParent>;
+    mech: ActorInstance.MechPF2e<TParent>;
     party: ActorInstance.PartyPF2e<TParent>;
     npc: ActorInstance.NPCPF2e<TParent>;
     vehicle: ActorInstance.VehiclePF2e<TParent>;

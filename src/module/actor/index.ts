@@ -12,6 +12,7 @@ export { NPCPF2e } from "./npc/document.ts";
 export { ArmyPF2e } from "./army/document.ts";
 export { HazardPF2e } from "./hazard/document.ts";
 export { LootPF2e } from "./loot/document.ts";
+export { MechPF2e } from "./mech/document.ts";
 export { PartyPF2e } from "./party/document.ts";
 export { VehiclePF2e } from "./vehicle/document.ts";
 

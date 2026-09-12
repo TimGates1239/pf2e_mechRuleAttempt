@@ -1,4 +1,4 @@
-import { ArmyPF2e, CharacterPF2e, FamiliarPF2e, HazardPF2e, LootPF2e, NPCPF2e, PartyPF2e, VehiclePF2e } from "@actor";
+import { ArmyPF2e, CharacterPF2e, FamiliarPF2e, HazardPF2e, LootPF2e, MechPF2e, NPCPF2e, PartyPF2e, VehiclePF2e } from "@actor";
 import { SenseAcuity } from "@actor/creature/types.ts";
 import { LANGUAGES, SENSE_TYPES } from "@actor/creature/values.ts";
 import type { ActorType, AttributeString, SkillSlug } from "@actor/types.ts";
@@ -86,6 +86,7 @@ const actorTypes: Record<ActorType, string> = {
     familiar: "TYPES.Actor.familiar",
     hazard: "TYPES.Actor.hazard",
     loot: "TYPES.Actor.loot",
+    mech: "TYPES.Actor.mech",
     npc: "TYPES.Actor.npc",
     party: "TYPES.Actor.party",
     vehicle: "TYPES.Actor.vehicle",
@@ -1013,6 +1014,7 @@ export const PF2ECONFIG = {
             hazard: HazardPF2e,
             loot: LootPF2e,
             familiar: FamiliarPF2e,
+            mech: MechPF2e,
             party: PartyPF2e,
             vehicle: VehiclePF2e,
         },
