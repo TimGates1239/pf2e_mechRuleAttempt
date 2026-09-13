@@ -79,3 +79,26 @@ body,
             14rem 3.25rem;
     }
 }
+
+.actor.sheet.mech section.window-content .crb-style {
+    background: url("/assets/sheet/sf2e-header.webp"), url("/assets/sheet/background.webp");
+    background-size:
+        100% 5.625rem,
+        auto;
+    background-repeat: repeat-x, repeat;
+
+    > header.char-header .level {
+        filter: hue-rotate(240deg) brightness(1.1);
+    }
+
+    aside {
+        background-image: url("/assets/sheet/blue_sidebar_top.webp"), url("/assets/sheet/blue_sidebar_bottom.webp");
+        background-repeat: no-repeat;
+        background-position:
+            center calc(100% - 3.25rem),
+            center bottom;
+        background-size:
+            14rem 100%,
+            14rem 3.25rem;
+    }
+}
