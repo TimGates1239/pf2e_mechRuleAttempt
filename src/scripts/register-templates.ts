@@ -131,6 +131,7 @@ export function registerTemplates(): void {
         "actors/mech/tabs/inventory.hbs",
         "actors/mech/tabs/description.hbs",
         "actors/mech/tabs/effects.hbs",
+        "actors/mech/tabs/mech-parts.hbs",
 
         // Vehicle partials
         "actors/vehicle/vehicle-header.hbs",
