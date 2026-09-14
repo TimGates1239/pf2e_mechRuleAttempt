@@ -3,7 +3,7 @@
     "type": "system",
     "title": "Starfinder 2e Mech",
     "description": "A community contributed game system for Starfinder Second Edition",
-    "version": "1.5.1.4",
+    "version": "1.5.1.5",
     "license": "./LICENSE",
     "manifest": "https://raw.githubusercontent.com/TimGates1239/pf2e_mechRuleAttempt/refs/heads/v14-dev/system.sf2e.json",
     "download": "https://raw.githubusercontent.com/TimGates1239/pf2e_mechRuleAttempt/refs/heads/v14-dev/system.zip",
