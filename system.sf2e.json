@@ -3,7 +3,7 @@
     "type": "system",
     "title": "Starfinder 2e Mech",
     "description": "A community contributed game system for Starfinder Second Edition",
-    "version": "1.5.0.9-dev",
+    "version": "1.5.0.10-dev",
     "license": "./LICENSE",
     "manifest": "https://raw.githubusercontent.com/TimGates1239/pf2e_mechRuleAttempt/refs/heads/v14-dev/system.sf2e.json",
     "download": "https://raw.githubusercontent.com/TimGates1239/pf2e_mechRuleAttempt/refs/heads/v14-dev/system.zip",
@@ -449,6 +449,19 @@
             },
             "flags": {}
         },
+         {
+            "name": "mech",
+            "label": "Mech",
+            "path": "packs/mech",
+            "type": "Item",
+            "banner": "systems/sf2e/assets/compendium-banner/green.webp",
+            "system": "sf2e",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            },
+            "flags": {}
+        },
         {
             "name": "deities",
             "label": "Deities",
@@ -593,6 +606,14 @@
             "color": "#181818",
             "packs": [
                 "journals"
+            ]
+        },
+        {
+            "name": "Mech",
+            "sorting": "m",
+            "color": "#181818",
+            "packs": [
+                "mech"
             ]
         }
     ]

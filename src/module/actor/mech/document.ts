@@ -9,6 +9,7 @@ import { ArmorStatistic, HitPointsStatistic, Statistic, StatisticDifficultyClass
 import { ActorPF2e, ActorUpdateCallbackOptions, HitPointsSummary } from "../base.ts";
 import type { MechSource, MechSystemData } from "./data.ts";
 
+// WIP here is where we join information together to end up in the final result.
 class MechPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {
     declare armorClass: StatisticDifficultyClass<ArmorStatistic>;
 
@@ -70,6 +71,8 @@ class MechPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | nu
         // Hit Points
         const { attributes } = this;
         const hitPoints = new HitPointsStatistic(this, { baseMax: attributes.hp.max });
+        console.log(this)
+        console.log(hitPoints)
         attributes.hp = fu.mergeObject(hitPoints.getTraceData(), { brokenThreshold: Math.floor(hitPoints.max / 2) });
         setHitPointsRollOptions(this);
 

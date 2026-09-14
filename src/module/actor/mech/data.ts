@@ -11,6 +11,8 @@ import type { ArmorClassTraceData } from "@system/statistic/armor-class.ts";
 import type { MechPF2e } from "./document.ts";
 import type { MechTrait } from "./types.ts";
 import fields = foundry.data.fields;
+// import { MechFrameSchema, MechLowerLimbs, MechPowerCoreSchema, MechTierData, MechUpperLimps, MechWeaponsSchema } from "./parts.ts";
+import { MechFrameSchema } from "./parts.ts";
 
 /** The stored source data of a mech actor */
 type MechSource = BaseActorSourcePF2e<"mech", MechSystemSource>;
@@ -189,6 +191,10 @@ class MechSystemData extends ActorSystemModel<MechPF2e, MechSystemSchema> {
                     value: requiredInteger({ min: -Infinity, initial: 0 }),
                 }),
             }),
+            frame: new fields.SchemaField({
+                baseHP: requiredInteger({ min: -Infinity, initial: 0 }),
+                refSave: requiredInteger({ min: -Infinity, initial: 0 }),
+            })
         };
     }
 
@@ -237,6 +243,19 @@ type MechSystemSchema = ActorSystemSchema & {
             value: fields.NumberField<number, number, true, false, true>;
         }>;
     }>;
+
+    frame: fields.SchemaField<MechFrameSchema>;
+    // WIP what is the point of the define schema?
+    // tier: MechTierData;
+    // upperLimbs: MechUpperLimps;
+    // lowerLimbs: MechLowerLimbs;
+    // powerCore: MechPowerCoreSchema
+    // // WIP weapons work in progress
+    // weapons?: Array<MechWeaponsSchema>
+    // // WIP aux system work in progress
+    // auxiliarySystems?: fields.StringField<string>
+    // // WIP upgrades work in progress
+    // upgrades?: fields.StringField<string>
 };
 
 type MechTraitsSchema = {
