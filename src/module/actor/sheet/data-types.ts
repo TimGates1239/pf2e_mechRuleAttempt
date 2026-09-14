@@ -64,6 +64,23 @@ interface SheetInventory {
     invested?: { value: number; max: number } | null;
 }
 
+interface MechPartItem<TItem extends PhysicalItemPF2e = PhysicalItemPF2e> {
+    item: TItem;
+    /** Item size if it causes any weight difference relative to the actor */
+    // itemSize?: ActorSizePF2e | null;
+    baseHp: number
+}
+
+interface SheetMechParts {
+    sections: [
+        {
+            label: string
+            types: string[]
+            parts: MechPartItem[]
+        }
+    ]
+}
+
 interface ActorSheetDataPF2e<TActor extends ActorPF2e> extends ActorSheetData<TActor> {
     data: TActor["system"];
     systemId: SystemId;
@@ -108,4 +125,5 @@ export type {
     CurrencySummary,
     InventoryItem,
     SheetInventory,
+    SheetMechParts,
 };

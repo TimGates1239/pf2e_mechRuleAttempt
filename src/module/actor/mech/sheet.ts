@@ -1,4 +1,4 @@
-import type { AbilityViewData, ActorSheetDataPF2e } from "@actor/sheet/data-types.ts";
+import type { AbilityViewData, ActorSheetDataPF2e, SheetMechParts } from "@actor/sheet/data-types.ts";
 import { createAbilityViewData } from "@actor/sheet/helpers.ts";
 import type { MechPF2e } from "@actor/mech/index.ts";
 import type { FormSelectOption } from "@client/applications/forms/fields.d.mts";
@@ -70,7 +70,35 @@ export class MechSheetPF2e extends ActorSheetPF2e<MechPF2e> {
                 { value: "false", label: "PF2E.Actor.Hazard.EmitsSound.False" },
                 { value: "encounter", label: "PF2E.Actor.Hazard.EmitsSound.Encounter" },
             ],
+            mechParts: this.prepareMechParts()
         });
+    }
+
+    protected prepareMechParts(): SheetMechParts {
+        // const actor = this.actor;
+        // const items = [...iterateAllItems(actor)].filter((i) => i.isOfType("physical"));
+        // this.#inventorySearchEngine.removeAll();
+        // this.#inventorySearchEngine.addAll(items.map((i) => R.pick(i, ["uuid", "name"])));
+
+        const sections: SheetMechParts["sections"] = [
+            {
+                label: "Frame",
+                types: ["weapon", "shield"],
+                parts: []
+            }
+        ];
+
+        // This seems to add from actor database inventory to the list for the sheet
+        // for (const item of actor.inventory.contents.sort((a, b) => (a.sort || 0) - (b.sort || 0))) {
+        //     if (item.isInContainer) continue;
+        //     const section = sections.find((s) => s.types.includes(item.type));
+        //     //section?.parts.push(this.prepareInventoryItem(item));
+        // }
+
+        // WIP could include build points max, vs spent maybe?
+        return {
+            sections,
+        };
     }
 
     override activateListeners($html: JQuery): void {

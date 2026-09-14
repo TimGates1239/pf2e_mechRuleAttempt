@@ -1012,6 +1012,7 @@ class CharacterPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e
         });
     }
 
+    // WIP Attack Action generation?
     /** Prepare this character's strike actions */
     prepareAttacks({ includeBasicUnarmed = true } = {}): CharacterAttack[] {
         const { itemTypes, synthetics } = this;
