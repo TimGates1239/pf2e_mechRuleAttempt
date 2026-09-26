@@ -26,6 +26,7 @@ class PackLoader {
 
         const progress = ui.notifications.info("", { progress: true });
         const increment = 1 / packs.length;
+        console.log(game.packs)
         for (const packId of packs) {
             const pack = game.packs.get(packId);
             if (!pack) {
