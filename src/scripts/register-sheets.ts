@@ -39,6 +39,7 @@ import { TokenDocumentPF2e } from "@scene/token-document/document.ts";
 import { TokenConfigPF2e } from "@scene/token-document/index.ts";
 import appv1 = foundry.appv1;
 import { MechSheetPF2e } from "@actor/mech/sheet.ts";
+import { MechPartSheetPF2e } from "@item/mech-part/sheet.ts";
 
 export function registerSheets(): void {
     const sheetLabel = "PF2E.SheetLabel";
@@ -97,6 +98,14 @@ export function registerSheets(): void {
     fd.collections.Actors.registerSheet("pf2e", MechSheetPF2e, {
         types: ["mech"],
         label: "Mech",
+        makeDefault: true,
+    });
+
+    // Mech Part
+    // WIP Do I need to do the localizeType here
+    fd.collections.Actors.registerSheet("pf2e", MechPartSheetPF2e, {
+        types: ["mechPart"],
+        label: "Mech Part",
         makeDefault: true,
     });
 

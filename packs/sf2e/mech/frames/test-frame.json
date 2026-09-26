@@ -19,7 +19,7 @@
         "hardness": 0,
         "hp": {
             "max": 0,
-            "value": 0
+            "value": 100
         },
         "level": {
             "value": 8
@@ -36,7 +36,7 @@
         "publication": {
             "license": "ORC",
             "remaster": true,
-            "title": "Starfinder Absalom Station"
+            "title": "Starfinder Tech Revelution"
         },
         "quantity": 1,
         "rules": [],
@@ -45,12 +45,13 @@
         "traits": {
             "rarity": "common",
             "value": [
-                "tech"
+                "tech",
+                "frame"
             ]
         },
         "usage": {
             "value": "carried"
         }
     },
-    "type": "backpack"
+    "type": "mech-part"
 }

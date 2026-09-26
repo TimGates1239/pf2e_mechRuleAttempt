@@ -22,6 +22,7 @@ import {
     HeritagePF2e,
     KitPF2e,
     LorePF2e,
+    MechPartPF2e,
     MeleePF2e,
     ShieldPF2e,
     SpellPF2e,
@@ -73,6 +74,7 @@ import {
     shieldTraits,
     spellTraits,
     traitDescriptions,
+    mechTraits,
     vehicleTraits,
     weaponTraits,
 } from "./traits.ts";
@@ -734,6 +736,7 @@ export const PF2ECONFIG = {
     npcAttackTraits,
     shieldTraits,
     spellTraits,
+    mechTraits,
     vehicleTraits,
     weaponTraits,
 
@@ -1042,6 +1045,7 @@ export const PF2ECONFIG = {
             kit: KitPF2e,
             lore: LorePF2e,
             melee: MeleePF2e,
+            mechPart: MechPartPF2e,
             shield: ShieldPF2e,
             spell: SpellPF2e,
             spellcastingEntry: SpellcastingEntryPF2e,

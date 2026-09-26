@@ -24,7 +24,7 @@ class MechSystemData extends ActorSystemModel<MechPF2e, MechSystemSchema> {
 
     static override defineSchema(): MechSystemSchema {
         // WIP do we needed?
-        const mechTraits: Record<MechTrait, string> = CONFIG.PF2E.vehicleTraits;
+        const mechTraits: Record<MechTrait, string> = CONFIG.PF2E.mechTraits;
         const sizes: Record<Size, string> = CONFIG.PF2E.actorSizes;
         const requiredInteger = ({ min, initial = min }: { min: number; initial?: number }) =>
             new fields.NumberField<number, number, true, false, boolean>({
@@ -167,6 +167,9 @@ class MechSystemData extends ActorSystemModel<MechPF2e, MechSystemSchema> {
                     ],
                     { required: true, nullable: false, initial: "encounter" },
                 ),
+                mechPartBaseHp: new LaxArrayField(
+                    requiredInteger({min: 1})
+                )
             }),
             details: new fields.SchemaField({
                 description: new fields.HTMLField({ required: true, nullable: false, initial: "" }),
@@ -191,10 +194,15 @@ class MechSystemData extends ActorSystemModel<MechPF2e, MechSystemSchema> {
                     value: requiredInteger({ min: -Infinity, initial: 0 }),
                 }),
             }),
+            // do I do individual or join everything together?
+            // From what I can tell the character actor does do a lot, the item edits the actor data 
+            // Like the item is the one that adds attack action
+            // So should I have an array of hp so we can effect tier? Or keep each piece and separate them out at the item level?
             frame: new fields.SchemaField({
                 baseHP: requiredInteger({ min: -Infinity, initial: 0 }),
                 refSave: requiredInteger({ min: -Infinity, initial: 0 }),
             })
+
         };
     }
 
@@ -309,6 +317,9 @@ type MechAttributesSchema = {
         true,
         false,
         true
+    >;
+    mechPartBaseHp: fields.ArrayField<
+        fields.NumberField<number, number, true, false, true>
     >;
 };
 

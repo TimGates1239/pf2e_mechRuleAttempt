@@ -26,6 +26,7 @@ interface ItemInstances<TParent extends ActorPF2e | null> {
     heritage: ItemInstance.HeritagePF2e<TParent>;
     kit: ItemInstance.KitPF2e<TParent>;
     lore: ItemInstance.LorePF2e<TParent>;
+    mechPart: ItemInstance.MechPartPF2e<TParent>;
     melee: ItemInstance.MeleePF2e<TParent>;
     shield: ItemInstance.ShieldPF2e<TParent>;
     spell: ItemInstance.SpellPF2e<TParent>;

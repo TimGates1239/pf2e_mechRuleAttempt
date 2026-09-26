@@ -76,6 +76,12 @@ class MechPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | nu
         attributes.hp = fu.mergeObject(hitPoints.getTraceData(), { brokenThreshold: Math.floor(hitPoints.max / 2) });
         setHitPointsRollOptions(this);
 
+        let totalBaseHp = 0
+        attributes.mechPartBaseHp.forEach(baseHp => totalBaseHp+=baseHp)
+        console.log(totalBaseHp)
+
+
+
         // Prepare AC
         const armorStatistic = new ArmorStatistic(this, {
             modifiers: [

@@ -1066,6 +1066,11 @@ const vehicleTraits = {
     teleportation: "PF2E.TraitTeleportation",
 };
 
+const mechTraits = {
+    frame: "PF2E.TraitFrame",
+    upperLimb: "PF2E.TraitUpperLimb"
+}
+
 const equipmentTraits = {
     ...ancestryTraits,
     ...elementTraits,
@@ -1963,6 +1968,7 @@ export {
     shieldTraits,
     spellTraits,
     traitDescriptions,
+    mechTraits,
     vehicleTraits,
     weaponTraits,
     type ElementTrait,

@@ -21,6 +21,7 @@ const ITEM_TYPES = [
     "heritage",
     "kit",
     "lore",
+    "mechPart",
     "melee",
     "shield",
     "spell",

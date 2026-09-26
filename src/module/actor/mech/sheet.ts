@@ -1,10 +1,10 @@
-import type { AbilityViewData, ActorSheetDataPF2e, SheetMechParts } from "@actor/sheet/data-types.ts";
+import { SheetMechPartItem, type AbilityViewData, type ActorSheetDataPF2e, type SheetMechParts } from "@actor/sheet/data-types.ts";
 import { createAbilityViewData } from "@actor/sheet/helpers.ts";
 import type { MechPF2e } from "@actor/mech/index.ts";
 import type { FormSelectOption } from "@client/applications/forms/fields.d.mts";
 import type { ActorSheetOptions } from "@client/appv1/sheets/actor-sheet.d.mts";
 import type { ImageFilePath } from "@common/constants.d.mts";
-import { ItemPF2e } from "@item";
+import { ItemPF2e, MechPartPF2e } from "@item";
 import { AdjustedValue, getActionIcon, getAdjustedValue } from "@module/sheet/helpers.ts";
 import { ErrorPF2e, htmlClosest, htmlQuery, htmlQueryAll } from "@util";
 import { ActorSheetPF2e } from "../sheet/base.ts";
@@ -75,7 +75,8 @@ export class MechSheetPF2e extends ActorSheetPF2e<MechPF2e> {
     }
 
     protected prepareMechParts(): SheetMechParts {
-        // const actor = this.actor;
+        const actor = this.actor;
+        // WIP not sure what this is doing?
         // const items = [...iterateAllItems(actor)].filter((i) => i.isOfType("physical"));
         // this.#inventorySearchEngine.removeAll();
         // this.#inventorySearchEngine.addAll(items.map((i) => R.pick(i, ["uuid", "name"])));
@@ -83,22 +84,30 @@ export class MechSheetPF2e extends ActorSheetPF2e<MechPF2e> {
         const sections: SheetMechParts["sections"] = [
             {
                 label: "Frame",
-                types: ["weapon", "shield"],
+                types: ["mech-part"],
+                partTrait: "frame",
                 parts: []
             }
         ];
 
         // This seems to add from actor database inventory to the list for the sheet
-        // for (const item of actor.inventory.contents.sort((a, b) => (a.sort || 0) - (b.sort || 0))) {
-        //     if (item.isInContainer) continue;
-        //     const section = sections.find((s) => s.types.includes(item.type));
-        //     //section?.parts.push(this.prepareInventoryItem(item));
-        // }
+        for (const mechPartItem of actor.itemTypes.mechPart.sort((a, b) => (a.sort || 0) - (b.sort || 0))) {
+            if (mechPartItem.type !== "mech-part") continue;
+            const section = sections.find((s) => mechPartItem.traits.find((trait) => trait === s.partTrait));
+            section?.parts.push(this.prepareMechPartItem(mechPartItem));
+        }
 
         // WIP could include build points max, vs spent maybe?
         return {
             sections,
         };
+    }
+
+    protected prepareMechPartItem(item: MechPartPF2e): SheetMechPartItem {
+        return {
+            item,
+            baseHp: 100
+        }
     }
 
     override activateListeners($html: JQuery): void {

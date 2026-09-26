@@ -25,6 +25,7 @@ import type { TreasureSource } from "@item/treasure/data.ts";
 import type { WeaponSource } from "@item/weapon/data.ts";
 import type { PROFICIENCY_RANKS, Rarity } from "@module/data.ts";
 import type { ItemDescriptionData } from "./system.ts";
+import type { MechPartSource } from "@item/mech-part/data.ts";
 
 type ProficiencyRank = (typeof PROFICIENCY_RANKS)[number];
 
@@ -73,6 +74,7 @@ type ItemSourcePF2e =
     | KitSource
     | LoreSource
     | MeleeSource
+    | MechPartSource
     | SpellSource
     | SpellcastingEntrySource;
 

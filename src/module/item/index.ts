@@ -39,4 +39,7 @@ export { MeleePF2e } from "./melee/document.ts";
 export { SpellPF2e } from "./spell/document.ts";
 export { SpellcastingEntryPF2e } from "./spellcasting-entry/document.ts";
 
+// Mech items
+export { MechPartPF2e } from "./mech-part/document.ts"
+
 export * from "./base/sheet/index.ts";

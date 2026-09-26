@@ -6,8 +6,9 @@ import type { FormSelectOption } from "@client/applications/forms/fields.d.mts";
 import type { AppV1RenderOptions } from "@client/appv1/api/application-v1.d.mts";
 import type { ActorSheetData } from "@client/appv1/sheets/actor-sheet.d.mts";
 import type { ItemUUID } from "@common/documents/_module.d.mts";
-import type { PhysicalItemPF2e } from "@item";
+import type { MechPartPF2e, PhysicalItemPF2e } from "@item";
 import type { Frequency } from "@item/base/data/index.ts";
+import { MechPartTrait } from "@item/mech-part/types.ts";
 import type { RawCoins } from "@item/physical/data.ts";
 import type { RollOptionToggle } from "@module/rules/synthetics.ts";
 import type { SheetOptions } from "@module/sheet/helpers.ts";
@@ -64,7 +65,7 @@ interface SheetInventory {
     invested?: { value: number; max: number } | null;
 }
 
-interface MechPartItem<TItem extends PhysicalItemPF2e = PhysicalItemPF2e> {
+interface SheetMechPartItem<TItem extends MechPartPF2e = MechPartPF2e> {
     item: TItem;
     /** Item size if it causes any weight difference relative to the actor */
     // itemSize?: ActorSizePF2e | null;
@@ -76,7 +77,8 @@ interface SheetMechParts {
         {
             label: string
             types: string[]
-            parts: MechPartItem[]
+            partTrait: MechPartTrait
+            parts: SheetMechPartItem[]
         }
     ]
 }
@@ -126,4 +128,5 @@ export type {
     InventoryItem,
     SheetInventory,
     SheetMechParts,
+    SheetMechPartItem
 };

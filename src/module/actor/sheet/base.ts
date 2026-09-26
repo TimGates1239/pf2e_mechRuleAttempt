@@ -186,6 +186,7 @@ abstract class ActorSheetPF2e<TActor extends ActorPF2e> extends fav1.sheets.Acto
         return sheetData;
     }
 
+    // WIP Inventory Example
     protected prepareInventory(): SheetInventory {
         const actor = this.actor;
         const items = [...iterateAllItems(actor)].filter((i) => i.isOfType("physical"));
