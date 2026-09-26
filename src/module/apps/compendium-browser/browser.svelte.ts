@@ -25,7 +25,7 @@ class CompendiumBrowser extends SvelteApplicationMixin(fa.api.ApplicationV2) {
     resultList: HTMLUListElement = $state(document.createElement("ul"));
 
     activeTab: BrowserTab;
-    dataTabsList = ["action", "bestiary", "campaignFeature", "equipment", "feat", "hazard", "spell"] as const;
+    dataTabsList = ["action", "bestiary", "campaignFeature", "equipment", "feat", "hazard", "mechPart", "spell"] as const;
     packLoader = new PackLoader();
     declare settings: CompendiumBrowserSettings;
     tabs: BrowserTabs;
@@ -41,6 +41,7 @@ class CompendiumBrowser extends SvelteApplicationMixin(fa.api.ApplicationV2) {
             equipment: new browserTabs.Equipment(this),
             feat: new browserTabs.Feats(this),
             hazard: new browserTabs.Hazards(this),
+            mechPart: new browserTabs.MechParts(this),
             spell: new browserTabs.Spells(this),
         };
         this.tabsArray = R.values(this.tabs);
@@ -254,6 +255,7 @@ class CompendiumBrowser extends SvelteApplicationMixin(fa.api.ApplicationV2) {
             hazard: {},
             equipment: {},
             feat: {},
+            mechPart: {},
             spell: {},
         };
 

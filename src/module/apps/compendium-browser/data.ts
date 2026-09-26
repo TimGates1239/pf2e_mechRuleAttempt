@@ -19,10 +19,11 @@ interface BrowserTabs {
     equipment: browserTabs.Equipment;
     feat: browserTabs.Feats;
     hazard: browserTabs.Hazards;
+    mechPart: browserTabs.MechParts;
     spell: browserTabs.Spells;
 }
 
-type TabName = "action" | "bestiary" | "campaignFeature" | "equipment" | "feat" | "hazard" | "spell";
+type TabName = "action" | "bestiary" | "campaignFeature" | "equipment" | "feat" | "hazard" | "mechPart" | "spell";
 type ContentTabName = Exclude<TabName, "settings">;
 type BrowserTab = InstanceType<(typeof browserTabs)[keyof typeof browserTabs]>;
 type TabData<T> = Record<TabName, T>;

@@ -21,6 +21,9 @@ class CompendiumBrowserSettingsApp extends fa.api.HandlebarsApplicationMixin(fa.
         hazard: {
             label: "PF2E.CompendiumBrowser.TabHazard",
         },
+        mechPart: {
+            label: "PF2e.CompendiumBrowser.TabMechPart",
+        },
         spell: {
             label: "PF2E.CompendiumBrowser.TabSpell",
         },

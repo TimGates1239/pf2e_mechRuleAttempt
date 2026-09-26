@@ -656,6 +656,9 @@ abstract class ActorSheetPF2e<TActor extends ActorPF2e> extends fav1.sheets.Acto
             "browse-equipment": (_, anchor) => {
                 return this.#onClickBrowseEquipment(anchor);
             },
+            "browse-mech-part": (_, anchor) => {
+                return this.#onClickBrowserMechParts(anchor);
+            },
             "create-item": (_, anchor) => {
                 this.#onClickCreateItem(anchor);
             },
@@ -969,6 +972,24 @@ abstract class ActorSheetPF2e<TActor extends ActorPF2e> extends fav1.sheets.Acto
         const traits = (anchor.dataset.actionTrait || "").split(",") as AbilityTrait[];
         const categories = (anchor.dataset.actionCategory || "").split(",") as ActionCategory[];
         game.pf2e.compendiumBrowser.openActionTab({ types, traits, categories });
+    }
+
+    async #onClickBrowserMechParts(element: HTMLElement): Promise<void> {
+        const tab = game.pf2e.compendiumBrowser.tabs.mechPart;
+        const filter = await tab.getFilterData();
+        console.log(element.dataset)
+        // const checkboxes = filter.checkboxes;
+
+        // for (const itemType of checkboxesFilterCodes) {
+        //     const checkbox = checkboxes.itemTypes;
+        //     if (objectHasKey(checkbox.options, itemType)) {
+        //         checkbox.options[itemType].selected = true;
+        //         checkbox.selected.push(itemType);
+        //         checkbox.isExpanded = true;
+        //     }
+        // }
+
+        tab.open({ filter });
     }
 
     async #onClickBrowseEquipment(element: HTMLElement): Promise<void> {

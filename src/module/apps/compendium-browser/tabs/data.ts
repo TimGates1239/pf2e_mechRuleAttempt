@@ -7,6 +7,7 @@ import { FeatTrait } from "@item/feat/types.ts";
 import { PhysicalItemTrait } from "@item/physical/data.ts";
 import type { SearchResult } from "minisearch";
 import type { SortDirection } from "../data.ts";
+import { MechTrait } from "@actor/mech/types.ts";
 
 interface CheckboxOption {
     label: string;
@@ -127,6 +128,13 @@ interface FeatFilters extends BaseFilterData {
     traits: TraitData<FeatTrait>;
 }
 
+interface MechPartFilters extends BaseFilterData {
+    checkboxes: Record<"category" | "skills" | "rarity", CheckboxData>;
+    source: CheckboxData;
+    level: LevelData;
+    traits: TraitData<MechTrait>;
+}
+
 interface HazardFilters extends BaseFilterData {
     checkboxes: {
         complexity: CheckboxData;
@@ -157,6 +165,7 @@ type BrowserFilter =
     | EquipmentFilters
     | FeatFilters
     | HazardFilters
+    | MechPartFilters
     | SpellFilters;
 
 type BrowserFilterData = CheckboxData | LevelData | SelectData | RangesInputData | TraitData;
@@ -184,6 +193,7 @@ export type {
     FeatFilters,
     HazardFilters,
     LevelData,
+    MechPartFilters,
     RangesInputData,
     RenderResultListOptions,
     SelectData,
