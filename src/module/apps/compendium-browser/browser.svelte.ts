@@ -265,6 +265,7 @@ class CompendiumBrowser extends SvelteApplicationMixin(fa.api.ApplicationV2) {
             "feat",
             "kit",
             "hazard",
+            "mechPart",
             "npc",
             "spell",
             ...PHYSICAL_ITEM_TYPES,
@@ -282,6 +283,7 @@ class CompendiumBrowser extends SvelteApplicationMixin(fa.api.ApplicationV2) {
         ]);
 
         const userSettings = game.settings.get(SYSTEM_ID, "compendiumBrowserPacks");
+        console.log(game)
         for (const pack of game.packs) {
             if (!pack.testUserPermission(game.user, "LIMITED")) continue;
             const tabNames = R.unique(

@@ -23,9 +23,9 @@ export class CompendiumBrowserMechPartTab extends CompendiumBrowserTab {
     }
 
     protected override async loadData(): Promise<void> {
-        console.debug(`${SYSTEM_NAME} System | Compendium Browser | Started loading feats`);
+        console.debug(`${SYSTEM_NAME} System | Compendium Browser | Started loading Mech Parts`);
 
-        const feats: CompendiumBrowserIndexData[] = [];
+        const mechParts: CompendiumBrowserIndexData[] = [];
         const publications = new Set<string>();
         const indexFields = [
             "img",
@@ -41,28 +41,28 @@ export class CompendiumBrowserMechPartTab extends CompendiumBrowserTab {
 
         for await (const { pack, index } of this.browser.packLoader.loadPacks(
             "Item",
-            this.browser.loadedPacks("feat"),
+            this.browser.loadedPacks("mechPart"),
             indexFields,
         )) {
             console.debug(
                 `${SYSTEM_NAME} System | Compendium Browser | ${pack.metadata.label} - ${index.size} entries found`,
             );
-            for (const featData of index) {
-                if (featData.type !== "feat") continue;
+            for (const mechPartdata of index) {
+                if (mechPartdata.type !== "feat") continue;
                 // Check separately for one of "system.category or "system.featType.value" to provide backward
                 // compatible support for unmigrated feats in non-system compendiums.
                 const categoryPaths = ["system.category", "system.featType.value"];
                 const nonCategoryPaths = indexFields.filter((f) => !categoryPaths.includes(f));
-                const categoryPathFound = categoryPaths.some((p) => fu.hasProperty(featData, p));
+                const categoryPathFound = categoryPaths.some((p) => fu.hasProperty(mechPartdata, p));
 
-                if (!this.hasAllIndexFields(featData, nonCategoryPaths) || !categoryPathFound) {
+                if (!this.hasAllIndexFields(mechPartdata, nonCategoryPaths) || !categoryPathFound) {
                     console.warn(
-                        `Feat "${featData.name}" does not have all required data fields.`,
+                        `Feat "${mechPartdata.name}" does not have all required data fields.`,
                         `Consider unselecting pack "${pack.metadata.label}" in the compendium browser settings.`,
                     );
                     continue;
                 }
-                const system = featData.system;
+                const system = mechPartdata.system;
 
                 // Accommodate deprecated featType objects
                 const featType: unknown = system.featType;
@@ -88,7 +88,7 @@ export class CompendiumBrowserMechPartTab extends CompendiumBrowserTab {
                     }
                 }
                 const category = system.category;
-                const type = featData.type;
+                const type = mechPartdata.type;
                 const traits: string[] = system.traits.value;
                 const pubSource = system.publication?.title ?? system.source?.value ?? "";
                 const options: string[] = [
@@ -106,20 +106,20 @@ export class CompendiumBrowserMechPartTab extends CompendiumBrowserTab {
                     options.push("trait:ancestry:universal");
                 }
 
-                feats.push({
-                    name: featData.name,
-                    originalName: featData.originalName, // Added by Babele
-                    img: featData.img,
-                    uuid: featData.uuid,
-                    level: featData.system.level.value,
-                    rarity: featData.system.traits.rarity,
+                mechParts.push({
+                    name: mechPartdata.name,
+                    originalName: mechPartdata.originalName, // Added by Babele
+                    img: mechPartdata.img,
+                    uuid: mechPartdata.uuid,
+                    level: mechPartdata.system.level.value,
+                    rarity: mechPartdata.system.traits.rarity,
                     options: new Set(options),
                 });
             }
         }
 
         // Set indexData
-        this.indexData = feats;
+        this.indexData = mechParts;
 
         // Filters
         this.filterData.checkboxes.skills.options = this.generateCheckboxOptions(CONFIG.PF2E.skills);
