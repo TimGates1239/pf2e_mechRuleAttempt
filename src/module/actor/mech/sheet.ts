@@ -90,6 +90,11 @@ export class MechSheetPF2e extends ActorSheetPF2e<MechPF2e> {
             }
         ];
 
+        if(actor.itemTypes.mechPart == undefined) {
+            return {
+                sections,
+            }
+        }
         // This seems to add from actor database inventory to the list for the sheet
         for (const mechPartItem of actor.itemTypes.mechPart.sort((a, b) => (a.sort || 0) - (b.sort || 0))) {
             if (mechPartItem.type !== "mech-part") continue;
