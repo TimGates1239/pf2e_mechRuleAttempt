@@ -29,6 +29,7 @@ class PackLoader {
         console.log(game.packs)
         for (const packId of packs) {
             const pack = game.packs.get(packId);
+            console.log({pack, packId})
             if (!pack) {
                 progress.update({ pct: progress.pct + increment });
                 continue;

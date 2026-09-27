@@ -277,12 +277,14 @@ class CompendiumBrowser extends SvelteApplicationMixin(fa.api.ApplicationV2) {
             ["feat", "feat"],
             ["kit", "equipment"],
             ["hazard", "hazard"],
+            ["mechPart", "mechPart"],
             ["npc", "bestiary"],
             ["spell", "spell"],
             ...Array.from(PHYSICAL_ITEM_TYPES).map((t): [ItemType, "equipment"] => [t, "equipment"]),
         ]);
 
         const userSettings = game.settings.get(SYSTEM_ID, "compendiumBrowserPacks");
+        console.log("Browser Svelte file")
         console.log(game)
         for (const pack of game.packs) {
             if (!pack.testUserPermission(game.user, "LIMITED")) continue;
