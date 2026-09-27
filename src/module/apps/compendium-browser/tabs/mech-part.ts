@@ -46,7 +46,7 @@ export class CompendiumBrowserMechPartTab extends CompendiumBrowserTab {
             );
             for (const mechPartdata of index) {
                 console.log({mechPartdata})
-                if (mechPartdata.type !== "mehPart") continue;
+                if (mechPartdata.type !== "mechPart") continue;
 
                 const system = mechPartdata.system;
 
