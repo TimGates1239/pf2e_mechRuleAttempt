@@ -1,4 +1,3 @@
-import * as R from "remeda";
 import { CompendiumBrowser } from "../browser.svelte.ts";
 import { ContentTabName } from "../data.ts";
 import { CompendiumBrowserTab } from "./base.svelte.ts";
@@ -12,8 +11,6 @@ export class CompendiumBrowserMechPartTab extends CompendiumBrowserTab {
     /* MiniSearch */
     override searchFields = ["name", "originalName"];
     override storeFields = ["name", "originalName", "img", "uuid", "level", "rarity", "options"];
-
-    #creatureTraits = CONFIG.PF2E.creatureTraits;
 
     constructor(browser: CompendiumBrowser) {
         super(browser);
@@ -48,53 +45,17 @@ export class CompendiumBrowserMechPartTab extends CompendiumBrowserTab {
                 `${SYSTEM_NAME} System | Compendium Browser | ${pack.metadata.label} - ${index.size} entries found`,
             );
             for (const mechPartdata of index) {
-                console.log(mechPartdata)
-                if (mechPartdata.type !== "feat") continue;
-                // Check separately for one of "system.category or "system.featType.value" to provide backward
-                // compatible support for unmigrated feats in non-system compendiums.
-                const categoryPaths = ["system.category", "system.featType.value"];
-                const nonCategoryPaths = indexFields.filter((f) => !categoryPaths.includes(f));
-                const categoryPathFound = categoryPaths.some((p) => fu.hasProperty(mechPartdata, p));
+                console.log({mechPartdata})
+                if (mechPartdata.type !== "mehPart") continue;
 
-                if (!this.hasAllIndexFields(mechPartdata, nonCategoryPaths) || !categoryPathFound) {
-                    console.warn(
-                        `Feat "${mechPartdata.name}" does not have all required data fields.`,
-                        `Consider unselecting pack "${pack.metadata.label}" in the compendium browser settings.`,
-                    );
-                    continue;
-                }
                 const system = mechPartdata.system;
 
-                // Accommodate deprecated featType objects
-                const featType: unknown = system.featType;
-                if (R.isPlainObject(featType) && "value" in featType && typeof featType.value === "string") {
-                    system.category = featType.value;
-                    delete system.featType;
-                }
-
-                // Prerequisites are strings that could contain translated skill names
-                const prereqs: { value: string }[] = system.prerequisites.value;
-                const prerequisitesArr = prereqs.map((prerequisite) =>
-                    prerequisite?.value ? prerequisite.value.toLowerCase() : "",
-                );
-                const skills: Set<string> = new Set();
-                for (const prereq of prerequisitesArr) {
-                    for (const [key, value] of Object.entries(CONFIG.PF2E.skills)) {
-                        // Check the string for the english translation key or a translated skill name
-                        const translated = _loc(value.label).toLocaleLowerCase(game.i18n.lang);
-                        if (prereq.includes(key) || prereq.includes(translated)) {
-                            // Alawys record the translation key to enable filtering
-                            skills.add(key);
-                        }
-                    }
-                }
                 const category = system.category;
                 const type = mechPartdata.type;
                 const traits: string[] = system.traits.value;
                 const pubSource = system.publication?.title ?? system.source?.value ?? "";
                 const options: string[] = [
                     ...traits.map((t: string) => `trait:${t.replace(/^hb_/, "")}`),
-                    ...skills.map((s) => `skill:${s}`),
                     `category:${category}`,
                     `type:${type}`,
                     `level:${system.level.value}`,
@@ -102,10 +63,6 @@ export class CompendiumBrowserMechPartTab extends CompendiumBrowserTab {
                     this.preparePublicationSource(pubSource, publications),
                 ];
 
-                // Tag ancestry items without an ancestry trait
-                if (category === "ancestry" && !traits.some((t) => t in this.#creatureTraits)) {
-                    options.push("trait:ancestry:universal");
-                }
 
                 mechParts.push({
                     name: mechPartdata.name,
