@@ -59,7 +59,10 @@
                     "details.description"
                 ]
             },
-            "mech": {},
+            "mech": {
+                "htmlFields": [
+                    "details.description"
+                ]},
             "party": {
                 "htmlFields": [
                     "details.description"
