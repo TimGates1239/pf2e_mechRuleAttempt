@@ -43,6 +43,7 @@ class PackLoader {
                 const index = await pack.getIndex({ fields: indexFields });
                 console.log(index)
                 const firstResult: Partial<CompendiumIndexData> = index.contents.at(0) ?? {};
+                console.log({firstResult})
                 // Every result should have the "system" property otherwise the indexFields were wrong for that pack
                 if (firstResult.system) {
                     const filteredIndex = this.#createFilteredIndex(index, sources);

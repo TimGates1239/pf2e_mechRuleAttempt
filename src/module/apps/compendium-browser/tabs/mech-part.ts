@@ -48,6 +48,7 @@ export class CompendiumBrowserMechPartTab extends CompendiumBrowserTab {
                 `${SYSTEM_NAME} System | Compendium Browser | ${pack.metadata.label} - ${index.size} entries found`,
             );
             for (const mechPartdata of index) {
+                console.log(mechPartdata)
                 if (mechPartdata.type !== "feat") continue;
                 // Check separately for one of "system.category or "system.featType.value" to provide backward
                 // compatible support for unmigrated feats in non-system compendiums.
