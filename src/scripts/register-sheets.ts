@@ -162,6 +162,7 @@ export function registerSheets(): void {
         ["heritage", HeritageSheetPF2e],
         ["kit", KitSheetPF2e],
         ["lore", LoreSheetPF2e],
+        ["mechPart", MechPartSheetPF2e],
         ["melee", MeleeSheetPF2e],
         ["shield", ShieldSheetPF2e],
         ["spell", SpellSheetPF2e],

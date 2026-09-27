@@ -79,7 +79,9 @@ export class CompendiumBrowserMechPartTab extends CompendiumBrowserTab {
         // Set indexData
         this.indexData = mechParts;
 
+        console.log({indexData: this.indexData})
         // Filters
+        // WIP need to add type
         this.filterData.checkboxes.skills.options = this.generateCheckboxOptions(CONFIG.PF2E.skills);
         this.filterData.checkboxes.rarity.options = this.generateCheckboxOptions(CONFIG.PF2E.rarityTraits);
         this.filterData.source.options = this.generateSourceCheckboxOptions(publications);
