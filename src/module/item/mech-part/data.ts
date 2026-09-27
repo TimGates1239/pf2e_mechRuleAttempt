@@ -69,7 +69,7 @@ class MechPartSystemData extends ItemSystemModel<MechPartPF2e, MechPartSystemSch
         super.prepareBaseData();
         // `Infinity` is stored as `null` in JSON, so change back
         this.hp = { value: 0 };
-        this.traits
+        this.traits.otherTags = []
     }
 
     override prepareDerivedData(): void {
