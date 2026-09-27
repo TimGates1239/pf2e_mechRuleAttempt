@@ -43,6 +43,9 @@
         "size": "med",
         "stowing": false,
         "traits": {
+            "otherTags": [
+                "mech-item"
+            ],
             "rarity": "common",
             "value": [
                 "tech",
