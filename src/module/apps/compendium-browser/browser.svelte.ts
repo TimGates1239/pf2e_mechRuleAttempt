@@ -286,6 +286,7 @@ class CompendiumBrowser extends SvelteApplicationMixin(fa.api.ApplicationV2) {
         const userSettings = game.settings.get(SYSTEM_ID, "compendiumBrowserPacks");
         console.log("Browser Svelte file")
         for (const pack of game.packs) {
+            console.log(`Handling Path: ${pack.metadata.path}`)
             if (!pack.testUserPermission(game.user, "LIMITED")) continue;
             console.log(pack)
             const tabNames = R.unique(
