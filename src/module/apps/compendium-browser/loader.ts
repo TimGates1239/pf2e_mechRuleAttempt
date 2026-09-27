@@ -26,7 +26,7 @@ class PackLoader {
 
         const progress = ui.notifications.info("", { progress: true });
         const increment = 1 / packs.length;
-        console.log(game.packs)
+        console.log("Compendium Browser Loader")
         for (const packId of packs) {
             const pack = game.packs.get(packId);
             console.log({pack, packId})
@@ -38,8 +38,10 @@ class PackLoader {
                 message: localize("LoadingPack", { pack: pack.metadata.label }),
                 pct: progress.pct + increment,
             });
+            console.log({documentType, indexFields})
             if (pack.documentName === documentType) {
                 const index = await pack.getIndex({ fields: indexFields });
+                console.log(index)
                 const firstResult: Partial<CompendiumIndexData> = index.contents.at(0) ?? {};
                 // Every result should have the "system" property otherwise the indexFields were wrong for that pack
                 if (firstResult.system) {

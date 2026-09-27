@@ -286,21 +286,30 @@ class CompendiumBrowser extends SvelteApplicationMixin(fa.api.ApplicationV2) {
         const userSettings = game.settings.get(SYSTEM_ID, "compendiumBrowserPacks");
         console.log("Browser Svelte file")
         for (const pack of game.packs) {
-            console.log(`Handling Path: ${pack.metadata.path}`)
+            const isMech = pack.metadata.path.includes("mech")
+            if(isMech) {
+                console.log(`Handling Path: ${pack.metadata.path}`)
+                console.log(pack)
+            }
             if (!pack.testUserPermission(game.user, "LIMITED")) continue;
-            console.log(pack)
             const tabNames = R.unique(
                 R.unique(pack.index.map((entry) => entry.type))
                     .filter((t): t is BrowsableType => setHasElement(browsableTypes, t))
                     .flatMap((t) => typeToTab.get(t) ?? []),
             );
-            console.log(tabNames)
+            if(isMech) {
+                console.log(tabNames)
+            }
             for (const tabName of tabNames) {
                 settings[tabName][pack.collection] = {
                     load: userSettings[tabName]?.[pack.collection]?.load !== false,
                     name: pack.metadata.label,
                     package: pack.metadata.packageName,
                 };
+                if(isMech) {
+                    console.log(settings[tabName])
+                    console.log(settings[tabName][pack.collection])
+                }
             }
         }
 
