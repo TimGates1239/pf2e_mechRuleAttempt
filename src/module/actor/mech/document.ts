@@ -14,7 +14,7 @@ class MechPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | nu
     declare armorClass: StatisticDifficultyClass<ArmorStatistic>;
 
     override get allowedItemTypes(): (ItemType | "physical")[] {
-        return [...super.allowedItemTypes, "physical", "action"];
+        return [...super.allowedItemTypes, "physical", "action", "mechPart"];
     }
 
     /** Mech dimensions are specified for all three axes and usually do not form cubes */
