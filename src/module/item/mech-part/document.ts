@@ -39,6 +39,11 @@ class MechPartPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends 
         const actor = this.actor;
         if (!actor?.isOfType("mech")) throw ErrorPF2e("Mech Part much be embedded in Mech-type actors");
         
+        // This seems to be it.
+        const { mechPartBaseHp } = actor.attributes
+        console.log("Mech Part look at mechPartBaseHp")
+        console.log(mechPartBaseHp)
+        mechPartBaseHp.push(this.hp.value)
     }
 
     // Maybe this is where I could remove it?
