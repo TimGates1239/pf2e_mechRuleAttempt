@@ -2731,6 +2731,9 @@
                 "Hint": "Precious-material damage effects that can trigger or bypass some creatures' immunities, weaknesses, and resistances (applied to inline damage rolls)",
                 "Label": "Material Damage Effects"
             },
+            "MechPart": {
+                "HP": "HP"
+            },
             "NameLabel": "Name",
             "NPCAttack": {
                 "FIELDS": {

@@ -1,0 +1,20 @@
+<fieldset class="basics">
+    {{> (resolvePath "templates/items/partials/ability-activation.hbs")}}
+
+    <div class="form-group">
+        <label for="{{fieldIdPrefix}}hp">{{localize "PF2E.Item.MechPart.HP"}}</label>
+        <div class="form-fields">
+            <input
+                type="checkbox"
+                name="system.hp"
+                id="{{fieldIdPrefix}}hp"
+            />
+        </div>
+    </div>
+</fieldset>
+
+{{#unless (eq item.system.actionType.value "passive")}}
+    {{> (resolvePath "templates/items/partials/self-applied-effect.hbs")}}
+{{/unless}}
+
+{{> (resolvePath "templates/items/partials/other-tags.hbs")}}

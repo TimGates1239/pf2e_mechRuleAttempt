@@ -18,7 +18,7 @@ class MechPartSheetPF2e extends ItemSheetPF2e<MechPartPF2e> {
         return {
             ...super.defaultOptions,
             dragDrop: [{ dropSelector: ".tab[data-tab=details]" }],
-            hasSidebar: true,
+            hasSidebar: false,
         };
     }
 

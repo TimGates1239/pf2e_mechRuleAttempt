@@ -100,6 +100,7 @@ export function registerTemplates(): void {
         "items/heritage-sidebar.hbs",
         "items/kit-details.hbs",
         "items/lore-details.hbs",
+        "items/mech-part-details.hbs",
         "items/melee-details.hbs",
         "items/mystify-panel.hbs",
         "items/physical-sidebar.hbs",
