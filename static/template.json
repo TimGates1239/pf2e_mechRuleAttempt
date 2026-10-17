@@ -225,6 +225,7 @@
             "heritage",
             "kit",
             "lore",
+            "mechPart",
             "melee",
             "shield",
             "spell",
