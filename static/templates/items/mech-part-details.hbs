@@ -1,20 +1,22 @@
 <fieldset class="basics">
-    {{> (resolvePath "templates/items/partials/ability-activation.hbs")}}
-
     <div class="form-group">
         <label for="{{fieldIdPrefix}}hp">{{localize "PF2E.Item.MechPart.HP"}}</label>
         <div class="form-fields">
             <input
-                type="checkbox"
+                type="number"
                 name="system.hp"
                 id="{{fieldIdPrefix}}hp"
+                value="{{data.hp}}"
             />
         </div>
+        
     </div>
 </fieldset>
 
-{{#unless (eq item.system.actionType.value "passive")}}
+
+{{!-- {{#unless (eq item.system.actionType.value "passive")}}
+ Not sure what this is?
     {{> (resolvePath "templates/items/partials/self-applied-effect.hbs")}}
-{{/unless}}
+{{/unless}} --}}
 
 {{> (resolvePath "templates/items/partials/other-tags.hbs")}}

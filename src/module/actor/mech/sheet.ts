@@ -84,7 +84,7 @@ export class MechSheetPF2e extends ActorSheetPF2e<MechPF2e> {
         const sections: SheetMechParts["sections"] = [
             {
                 label: "Frame",
-                types: ["mech-part"],
+                types: ["mechPart"],
                 partTrait: "frame",
                 parts: []
             }
@@ -97,7 +97,7 @@ export class MechSheetPF2e extends ActorSheetPF2e<MechPF2e> {
         }
         // This seems to add from actor database inventory to the list for the sheet
         for (const mechPartItem of actor.itemTypes.mechPart.sort((a, b) => (a.sort || 0) - (b.sort || 0))) {
-            if (mechPartItem.type !== "mech-part") continue;
+            if (mechPartItem.type !== "mechPart") continue;
             const section = sections.find((s) => mechPartItem.traits.find((trait) => trait === s.partTrait));
             section?.parts.push(this.prepareMechPartItem(mechPartItem));
         }
