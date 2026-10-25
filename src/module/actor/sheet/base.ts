@@ -1435,6 +1435,10 @@ abstract class ActorSheetPF2e<TActor extends ActorPF2e> extends fav1.sheets.Acto
                         this.actor.type === "npc" ? _loc("PF2E.SkillLabel") : _loc("PF2E.NewPlaceholders.Lore");
                     return { type: itemType, name };
                 }
+                case "mechPart": {
+                    const name = "customMechPart";
+                    return { type: itemType, name};
+                }
                 default: {
                     if (!setHasElement(PHYSICAL_ITEM_TYPES, itemType)) {
                         throw ErrorPF2e(`Unsupported item type: ${itemType}`);

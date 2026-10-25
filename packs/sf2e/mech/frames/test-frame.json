@@ -19,10 +19,11 @@
         "hardness": 0,
         "hp": {
             "max": 0,
-            "value": 100
+            "baseHp": 100,
+            "hpAdvancement": 5
         },
         "level": {
-            "value": 8
+            "value": 0
         },
         "material": {
             "grade": null,
@@ -30,8 +31,56 @@
         },
         "price": {
             "value": {
-                "sp": 2300
+                "sp": 0
             }
+        },
+        "cost": {
+            "multiplier": 1.5
+        },
+        "strengthBonus": 2,
+        "acBonus": 2,
+        "saveBonus": {
+            "fort": 0,
+            "refl": 1
+        },
+        "slots": {
+            "frame": 4,
+            "aux": 4,
+            "limb": 0
+        },
+        "movement": {
+            "speed": 40,
+            "other": [
+                {
+                    "type": "fly",
+                    "speed": 60,
+                    "skill": "acrobatics",
+                    "skillBonus": 2
+                }
+            ]
+        },
+        "powerCore": {
+            "rechargeRate": 2,
+            "initial": 1,
+            "max": 5,
+            "options": {
+                "template": "aeon"
+            }
+        },
+        "weapon": {
+            "type": "ranged",
+            "range": 150,
+            "traits": [],
+            "damageCategory": 2,
+            "damageType": "C",
+            "slot": {
+                "cost": 1,
+                "locationOptions": [
+                    "frame",
+                    "upper"
+                ]
+            },
+            "capacity": 10
         },
         "publication": {
             "license": "ORC",
