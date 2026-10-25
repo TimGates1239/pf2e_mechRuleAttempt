@@ -25,7 +25,7 @@ import fields = foundry.data.fields;
  * @category RuleElement
  */
 class StrikeRuleElement extends RuleElement<StrikeSchema> {
-    protected static override validActorTypes: ActorType[] = ["character", "npc"];
+    protected static override validActorTypes: ActorType[] = ["character", "npc", "mech"];
 
     declare graspingAppendage: boolean;
 

@@ -127,6 +127,7 @@ export function registerTemplates(): void {
         // Mech partials
         "actors/mech/mech-header.hbs",
         "actors/mech/sidebar.hbs",
+        "actors/mech/partials/strike.hbs",
         "actors/mech/tabs/details.hbs",
         "actors/mech/tabs/actions.hbs",
         "actors/mech/tabs/inventory.hbs",

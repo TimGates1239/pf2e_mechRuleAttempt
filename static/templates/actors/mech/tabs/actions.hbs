@@ -1,6 +1,42 @@
 <div class="tab actions actions-pane" data-group="primary" data-tab="actions">
     <div class="actions-container">
         <div class="actions-tabs-wrapper">
+            <section class="actions-panel tab major" data-tab="encounter" data-group="actions-tabs">
+                {{#if toggles.actions}}{{> (resolvePath "templates/actors/partials/toggles.hbs") toggles=toggles.actions}}{{/if}}
+
+                <header>
+                    {{localize "PF2E.Actor.Attacks"}}
+                </header>
+
+                <ol class="actions-list item-list directory-list strikes-list" data-strikes>
+                    {{#each data.actions as |strike ai|}}
+                        {{> (resolvePath "templates/actors/mech/partials/strike.hbs") action=strike index=ai}}
+                    {{/each}}
+                </ol>
+
+                {{#each actions.encounter as |section sid|}}
+                    <header>
+                        {{section.label}}
+                        {{#if @root.options.editable}}
+                            <div class="controls">
+                                <button type="button" data-action="create-item" data-type="action" data-action-type="{{sid}}">
+                                    <i class="fa-solid fa-fw fa-plus"></i>{{localize "PF2E.CreateActionTitle"}}
+                                </button>
+                                <button type="button" data-action="browse-abilities" data-action-type="{{sid}}">
+                                    <i class="fa-solid fa-fw fa-search"></i>{{localize "PF2E.BrowseLabel"}}
+                                </button>
+                            </div>
+                        {{/if}}
+                    </header>
+
+                    <ol class="actions-list item-list directory-list">
+                        {{#each section.actions as |action|}}
+                            {{> (resolvePath "templates/actors/partials/action.hbs") action=action}}
+                        {{/each}}
+                    </ol>
+                {{/each}}
+            </section>
+            
             <section class="actions-panels major">
                 <div class="toggles section-container headerless">
                     {{#if toggles.actions}}{{> (resolvePath "templates/actors/partials/toggles.hbs") toggles=toggles.actions}}{{/if}}
