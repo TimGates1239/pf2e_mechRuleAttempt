@@ -1068,7 +1068,8 @@ const vehicleTraits = {
 
 const mechTraits = {
     frame: "PF2E.TraitFrame",
-    upperLimb: "PF2E.TraitUpperLimb"
+    upperLimb: "PF2E.TraitUpperLimb",
+    weapon: "PF2E.TraitWeapon"
 }
 
 const equipmentTraits = {

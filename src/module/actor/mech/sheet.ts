@@ -87,6 +87,12 @@ export class MechSheetPF2e extends ActorSheetPF2e<MechPF2e> {
                 types: ["mechPart"],
                 partTrait: "frame",
                 parts: []
+            },
+            {
+                label: "Weapon",
+                types: ["mechPart"],
+                partTrait: "weapon",
+                parts:[]
             }
         ];
 

@@ -73,14 +73,14 @@ interface SheetMechPartItem<TItem extends MechPartPF2e = MechPartPF2e> {
 }
 
 interface SheetMechParts {
-    sections: [
+    sections: 
         {
             label: string
             types: string[]
             partTrait: MechPartTrait
             parts: SheetMechPartItem[]
-        }
-    ]
+        }[]
+    
 }
 
 interface ActorSheetDataPF2e<TActor extends ActorPF2e> extends ActorSheetData<TActor> {
